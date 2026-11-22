@@ -2,16 +2,14 @@
 
 This project analyzes a fictional 5,000-row financial-services complaints dataset.
 
-## Contents
-- `original_complaints.csv` — source data.
-- `cleaned_complaints.csv` — deduplicated and standardized data.
-- `Customer_Complaints_Cleaned.xlsx` — cleaned data, cleaning log, and data dictionary.
+## Files in this GitHub folder
 - `complaint_analysis.sql` — 10 explained SQLite queries.
-- `SQL_Query_Execution_Results.xlsx` — outputs from executing the SQL queries against the cleaned dataset in SQLite.
-- `Complaint_Analysis_Findings_and_Recommendations.pdf` — findings and recommendations.
-- `dashboard_preview.png` — static dashboard mock-up, not a native Power BI report.
-- `PowerBI_DAX_Measures.txt` and `POWER_BI_BUILD_GUIDE.md` — measures and build instructions.
-- `AI_USAGE.md` — AI assistance disclosure.
+- `PowerBI_DAX_Measures.txt` — KPI measures for Power BI.
+- `POWER_BI_BUILD_GUIDE.md` — steps to build the interactive report.
+- `AI_USAGE.md` — AI assistance and verification disclosure.
+
+## Complete project bundle
+The accompanying project ZIP contains the source CSV, cleaned CSV, cleaned Excel workbook with cleaning log and data dictionary, SQL execution-results workbook, charts, dashboard preview, analysis PDF, and all supporting documentation.
 
 ## Key results
 - 5,000 source rows; 25 duplicate complaint IDs removed; 4,975 unique complaints remain.
@@ -21,9 +19,8 @@ This project analyzes a fictional 5,000-row financial-services complaints datase
 - Most frequent product: Credit Card (1,191 complaints).
 - Most frequent issue: Unexpected fees (545 complaints).
 
-## Important status note
-The dashboard PNG is a static preview. The actual interactive Power BI `.pbix` file has not yet been created and must be built in Power BI Desktop. The supplied SQL uses SQLite syntax. Open complaints are excluded from average response-time and timely-response calculations.
+## Power BI status
+The dashboard preview is a static image, not a native Power BI report. The interactive `.pbix` file has not yet been created. It must be built in Power BI Desktop using the cleaned CSV and the supplied DAX measures/build guide.
 
 ## Limitations
-Company complaint volumes are not normalized by customer base or company size. Timely responses are not the same as customer satisfaction. October 2026 data is partial through 15 October.
-
+Company complaint volumes are not normalized by customer base or company size. Timely responses are not the same as customer satisfaction. October 2026 data is partial through 15 October. The SQL file uses SQLite date functions; adapt them for another SQL engine.
