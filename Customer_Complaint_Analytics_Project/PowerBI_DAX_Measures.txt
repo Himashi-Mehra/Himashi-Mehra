@@ -1,0 +1,44 @@
+-- Power BI DAX measures
+-- Table name assumed: complaints
+
+Total Complaints =
+DISTINCTCOUNT(complaints[complaint_id])
+
+Open Complaints =
+CALCULATE(
+    [Total Complaints],
+    complaints[response_status] = "Open"
+)
+
+Closed Complaints =
+CALCULATE(
+    [Total Complaints],
+    complaints[response_status] = "Closed"
+)
+
+Timely Response Rate =
+DIVIDE(
+    CALCULATE(
+        COUNTROWS(complaints),
+        complaints[response_status] = "Closed",
+        complaints[timely_response] = "Yes"
+    ),
+    CALCULATE(
+        COUNTROWS(complaints),
+        complaints[response_status] = "Closed"
+    )
+)
+
+Average Response Time (Days) =
+CALCULATE(
+    AVERAGE(complaints[response_days]),
+    complaints[response_status] = "Closed"
+)
+
+-- Format Timely Response Rate as Percentage in Power BI.
+-- Recommended visuals:
+-- Line: date_received (Month) vs Total Complaints
+-- Bar: financial_product vs Total Complaints
+-- Bar: issue_category vs Total Complaints
+-- Column/bar: company_name vs Timely Response Rate
+-- Slicers: date_received, company_name, financial_product
